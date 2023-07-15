@@ -23,10 +23,62 @@ class Anasayfa extends StatefulWidget {
   State<Anasayfa> createState() => _AnasayfaState();
 }
 
-class _AnasayfaState extends State<Anasayfa> {
+class _AnasayfaState extends State<Anasayfa>
+    with SingleTickerProviderStateMixin {
+  late TabController tabController;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    tabController = TabController(length: 4, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    tabController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: Material(
+        color: Colors.white,
+        child: TabBar(
+            indicatorColor: Colors.transparent,
+            controller: tabController,
+            tabs: [
+              Tab(
+                icon: Icon(
+                  Icons.more,
+                  color: Colors.grey,
+                  size: 22,
+                ),
+              ),
+              Tab(
+                icon: Icon(
+                  Icons.play_arrow,
+                  color: Colors.grey,
+                  size: 22,
+                ),
+              ),
+              Tab(
+                icon: Icon(
+                  Icons.navigation,
+                  color: Colors.black,
+                  size: 22,
+                ),
+              ),
+              Tab(
+                icon: Icon(
+                  Icons.supervised_user_circle,
+                  color: Colors.grey,
+                  size: 22,
+                ),
+              )
+            ]),
+      ),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
