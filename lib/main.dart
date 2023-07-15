@@ -58,6 +58,7 @@ class _AnasayfaState extends State<Anasayfa> {
               scrollDirection: Axis.horizontal,
               children: [
                 listeElemani('assets/model1.jpeg', 'assets/chanellogo.jpg'),
+                //
                 SizedBox(
                   width: 30,
                 ),
